@@ -1,33 +1,54 @@
 class Poker(object):
-    mydeck = Deck() #go to deck class
-    total = 0
-    mydeck.shuffle() #shuffles deck
-    hand = mydeck.get_cards(2) #for first hand get two cards
+    def initialize (self, num_hands):
+    self.deck = Deck()
+    self.mydeck.shuffle ()
+    self.hands = []
+    self.total_points=[]       #create a list to store total_point
+    numCards = 5 #of cords for each player
+    for i in range (num_hands):
+        hand = []
+    for j in range (numCards):
+        hand.append (self.mydeck.deal())
+        self.hands.append(hand)
     
-    dealer = mydeck.get_cards(5) #for dealer the three cards to compare to
-    
-    def point(hand,dealer): #counts points of each hand
-    values=?
-    suits=?
-    straight = (values == range(min(values), max(values)+1))
-    
-    def royal_flush(hand,dealer):
+    def play (self):
+    for i in range (len (self.hands) ):
+        sorted_hand = sorted (self.hands[i], reverse = True)
+        hand = ''
+        for card in sorted_hand:
+            hand = hand + str(card) + ' '
+            print ('Hand ' + str(i + 1) + ': ' + hand)
+            
+    def count_points(self,hand):    
+        sorted_hand=sorted(hand,reverse=True)
+        sum=0
+        rank=[]
+        for card in sorted_hand:
+            rank.append(card.rank)
+            sum=rank[0]*13**4+rank[1]*13**3+rank[2]*13**2+rank[3]*13+rank[4]  #not sure if this is right based on deck class
+        return sum
+
+
+    def royal_flush(self,hand):
         
-    def straight_flush(hand,dealer):
+    def straight_flush(self,hand):
     
-    def straight(hand,dealer):
+    def straight(self,hand):
         
-    def flush(hand,dealer):
+    def flush(self,hand):
     
-    def full_house(hand,dealer):
+    def full_house(self,hand):
     
-    def four(hand,dealer): #4 of a kind
+    def four(self,hand): #4 of a kind
     
-    def three(hand,dealer):
+    def three(self,hand):
     
-    def two(hand, dealer):
+    def two(self,hand):
         
-    def one(hand,dealer):
+    def one(self,hand):
+    
+    def highest_Card(self,hand)
+        
         
     
         
