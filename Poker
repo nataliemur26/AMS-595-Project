@@ -19,14 +19,14 @@ class Poker(object):
             hand = hand + str(card) + ' '
         print ('Hand ' + str(i + 1) + ': ' + hand)
             
-    def count_points(self,hand):    
-        sorted_hand=sorted(hand,reverse=True)
-        sum=0
-        rank=[]
-        for card in sorted_hand:
-            rank.append(card.rank)
-            sum=rank[0]*13**4+rank[1]*13**3+rank[2]*13**2+rank[3]*13+rank[4]  #not sure if this is right based on deck class
-        return sum
+    #def count_points(self,hand):    
+       # sorted_hand=sorted(hand,reverse=True)
+        #sum=0
+      #  rank=[]
+        #for card in sorted_hand:
+         #   rank.append(card.rank)
+           # sum=rank[0]*13**4+rank[1]*13**3+rank[2]*13**2+rank[3]*13+rank[4]  #not sure if this is right based on deck class
+        #return sum
 
 
     def royal_flush(self,hand):
