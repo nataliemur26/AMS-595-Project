@@ -12,12 +12,12 @@ class Poker(object):
         self.hands.append(hand)
     
     def play (self):
-    for i in range (len (self.hands) ):
-        sorted_hand = sorted (self.hands[i], reverse = True)
-        hand = ''
+        for i in range (len (self.hands) ):
+            sorted_hand = sorted (self.hands[i], reverse = True)
+             hand = ''
         for card in sorted_hand:
             hand = hand + str(card) + ' '
-            print ('Hand ' + str(i + 1) + ': ' + hand)
+        print ('Hand ' + str(i + 1) + ': ' + hand)
             
     def count_points(self,hand):    
         sorted_hand=sorted(hand,reverse=True)
