@@ -1,0 +1,91 @@
+class Poker(object):
+    def initialize (self, num_hands):
+        self.mydeck = Deck()
+        self.mydeck.shuffle ()
+        self.hands = []
+        self.total_points=[]       #create a list to store total_point
+        numCards = 5    #of cards for each player
+        for i in range (num_hands):
+            hand = []
+        for j in range (numCards):
+            hand.append (self.mydeck.deal())
+            self.hands.append(hand)
+        
+        def play (self):
+            for i in range (len (self.hands) ):
+                sorted_hand = sorted (self.hands[i], reverse = True)
+                hand = ''
+            for card in sorted_hand:
+                hand = hand + str(card) + ' '
+            print ('Hand ' + str(i + 1) + ': ' + hand)
+                
+        def count_points(self,hand):    
+            sorted_hand=sorted(hand,reverse=True)
+            sum=0
+            rank=[]
+            for card in sorted_hand:
+                rank.append(card.rank)
+                sum=rank[0]*13**4+rank[1]*13**3+rank[2]*13**2+rank[3]*13+rank[4]  #not sure if this is right based on deck class
+            return sum
+    
+    
+        def royal_flush(self,hand):
+            hand = sorted(hand)
+            if hand[1].suit ==hand[2].suit==hand[3].suit==hand[4].suit==hand[5].suit:
+                if hand[1].rank == 10 and hand[2].rank ==11 and hand[3].rank==12 and hand[4].rank ==13 and hand[5].rank ==14:
+                    print("Royal Flush")
+                    points = 10
+                
+        def straight_flush(self,hand):
+            hand = sorted(hand)
+            if hand[1].suit ==hand[2].suit==hand[3].suit==hand[4].suit==hand[5].suit:
+                if hand[2].rank == (hand[1].rank+1) and hand[3].rank == (hand[2].rank+1) and hand[4].rank == (hand[3].rank+1) and hand[5].rank == (hand[4].rank+1):
+                    print("Straight Flush")
+                    points = 9
+                    
+        def four(self,hand): #4 of a kind
+            hand = sorted(hand)
+            if (hand[1].rank ==hand[2].rank==hand[3].rank==hand[4].rank) or (hand[2].rank==hand[3].rank==hand[4].rank==hand[5].rank):
+                print("Four of a Kind")
+                points = 8
+        
+        def full_house(self,hand):
+            hand = sorted(hand)
+            if (hand[1].rank==hand[2].rank==hand[3].rank and hand[4].rank==hand[5].rank) or (hand[1].rank==hand[2].rank and hand[3].rank== hand[4].rank==hand[5].rank):
+                print("Full House")
+                points = 7
+        
+        def flush(self,hand):    
+            hand = sorted(hand)
+            if hand[1].suit ==hand[2].suit==hand[3].suit==hand[4].suit==hand[5].suit:
+                print("Flush")
+                points = 6
+                
+        def straight(self,hand):
+            hand = sorted(hand)
+            if hand[2].rank == (hand[1].rank+1) and hand[3].rank == (hand[2].rank+1) and hand[4].rank == (hand[3].rank+1) and hand[5].rank == (hand[4].rank+1):
+                print("Straight")
+                points = 5
+                
+        def three(self,hand):
+            hand = sorted(hand)
+            if (hand[1].rank ==hand[2].rank==hand[3].rank) or (hand[2].rank ==hand[3].rank==hand[4].rank) or (hand[3].rank ==hand[4].rank==hand[5].rank):
+                print("Three of a Kind")
+                points = 4
+                
+        def two_pair(self,hand):
+            hand = sorted(hand)
+            if (hand[1].rank==hand[2].rank and hand[3].rank==hand[4].rank) or (hand[1].rank==hand[2].rank and hand[4].rank==hand[5].rank) or (hand[2].rank==hand[3].rank and hand[4].rank==hand[5].rank):
+                print("Two Pairs")
+                points = 3
+            
+        def one_pair(self,hand):
+            hand = sorted(hand)
+            if (hand[1].rank ==hand[2].rank) or (hand[2].rank ==hand[3].rank) or (hand[3].rank ==hand[4].rank) or (hand[4].rank ==hand[5].rank):
+                print("One Pair")
+                points = 2
+                    
+        def highest_Card(self,hand):
+            hand = sorted(hand)
+            print("Highest Card")
+            points = 1
