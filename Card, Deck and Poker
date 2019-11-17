@@ -230,9 +230,7 @@ class Poker(object):
             num_hands = eval( input ('Enter number of hands to play: ') )
 
         poker_game = Poker(num_hands)
-
         poker_game.play()  
-
 
 
         for i in range(num_hands):
