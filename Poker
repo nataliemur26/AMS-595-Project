@@ -1,6 +1,6 @@
 class Poker(object):
     def initialize (self, num_hands):
-    self.deck = Deck()
+    self.mydeck = Deck()
     self.mydeck.shuffle ()
     self.hands = []
     self.total_points=[]       #create a list to store total_point
