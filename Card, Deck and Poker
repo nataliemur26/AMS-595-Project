@@ -104,7 +104,7 @@ class Deck:
 
 class Poker(object):
 
-    def initialize (self, num_hands):
+    def __init__(self, num_hands):
         self.mydeck = Deck()
         self.mydeck.shuffle ()
         self.hands = []
