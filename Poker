@@ -4,7 +4,7 @@ class Poker(object):
     self.mydeck.shuffle ()
     self.hands = []
     self.total_points=[]       #create a list to store total_point
-    numCards = 5 #of cords for each player
+    numCards = 5    #of cards for each player
     for i in range (num_hands):
         hand = []
     for j in range (numCards):
