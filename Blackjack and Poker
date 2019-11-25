@@ -403,7 +403,7 @@ class BlackJack(object):
                                 print("You got Blackjack!")
                                 total[i] = 22
                                 input("Hit ENTER to continue.")
-                print("Player " + str(i+1) + "'s current hand is:",int(total[i]))
+                print("Player " + str(i+1) + "'s current hand value is:",int(total[i]))
                 if total[i] <= 10:
                     print("Your current total is low, we would recommend taking a hit.")
                 elif total[i] > 10 and total[i] <= 15:
