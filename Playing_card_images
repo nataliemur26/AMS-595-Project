@@ -1,0 +1,214 @@
+import tkinter as tk
+from PIL import ImageTk,Image
+global img
+class Playing_Card:
+    def __init__(self, suit=1, rank=2):
+    
+        if self.rank == 2 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("2S.jpg"))  
+            self.create_image(10, 10,  image=img) 
+            
+        elif self.rank == 2 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("2H.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 2 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("2D.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 2 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("2C.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 3 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("3S.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 3 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("3H.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 3 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("3D.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 3 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("3C.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 4 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("4S.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 4 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("4H.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 4 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("4D.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 4 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("4C.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 5 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("5S.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 5 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("5H.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 5 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("5D.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 5 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("5C.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 6 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("6S.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 6 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("6H.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 6 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("6D.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 6 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("6C.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 7 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("7S.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 7 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("7H.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 7 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("7D.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 7 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("7C.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 8 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("8S.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 8 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("8H.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 8 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("8D.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 8 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("8C.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 9 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("9S.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 9 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("9H.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 9 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("9D.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 9 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("9C.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 10 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("10S.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 10 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("10H.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 10 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("10D.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 10 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("10C.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 11 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("JS.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 11 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("JH.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 11 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("JD.jpg"))  
+            self.create_image(10, 10,  image=img)
+            
+        elif self.rank == 11 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("JC.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 12 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("QS.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 12 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("QH.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 12 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("QD.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 12 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("QC.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 13 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("KS.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 13 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("KH.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 13 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("KD.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 13 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("KC.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 14 and self.suit == 1:
+            img = ImageTk.PhotoImage(Image.open("AS.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 14 and self.suit == 2:
+            img = ImageTk.PhotoImage(Image.open("AH.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 14 and self.suit == 3:
+            img = ImageTk.PhotoImage(Image.open("AD.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
+        elif self.rank == 14 and self.suit == 4:
+            img = ImageTk.PhotoImage(Image.open("AC.jpg"))  
+            self.create_image(10, 10,  image=img)
+        
