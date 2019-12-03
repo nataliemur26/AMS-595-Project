@@ -13,7 +13,7 @@ class Card:
 
         if suit < 1 or suit > 4:
 
-            print("invalid suit, setting to 1")
+            print("invalid suit, setting to 1")#Makes sure suit is between 1 and 4
 
         self.suit = suit
 
@@ -43,7 +43,7 @@ class Card:
                  u"\u2666",  # diamond  value = 3
                  u"\u2663"]  # club     value  = 4
 
-
+                #Gives unicode image for suits
         r = str(self.rank)
 
 
@@ -70,7 +70,7 @@ class Card:
 
 
 
-            r = "A"
+            r = "A"      #Assigns Jack, Queen, King and Ace
 
         return r +':'+suits[self.suit-1]
  
@@ -108,7 +108,7 @@ class Deck:
         random.shuffle(self.cards)
         
 
-    def get_cards(self, num=1):
+    def get_cards(self, num=1):#Obtains multiple cards. Cards not returned to deck.
         hand = []
 
         for n in range(num):
@@ -118,7 +118,7 @@ class Deck:
 
         return hand
     
-    def get_card(self):
+    def get_card(self):  #Obtains one card.
 
         return self.cards.pop()
 
@@ -135,26 +135,26 @@ class Deck:
 
 
 
-class Poker(object):
+class Poker(object):#Class for poker game
 
     def __init__(self, num_hands):
-        self.mydeck = Deck()
+        self.mydeck = Deck()  #Creates and shuffles the deck
         self.mydeck.shuffle ()
-        self.hands = []
-        self.total_points=[]       #create a list to store total_point
+        self.hands = []         #Creates the list for all the hands
+        self.total_points=[]       #create a list to store total points for each round
         numCards = 5    #of cards for each player
 
         for i in range (num_hands):
             hand = []
             for j in range (numCards):
-                hand.append (self.mydeck.get_card())
-            self.hands.append(hand)
+                hand.append (self.mydeck.get_card())#Appends new card to each hand
+            self.hands.append(hand)         #Appends new hand to list
                 
 
 
-    def royalflush(self,hand,i):
+    def royalflush(self,hand,i):        #List of functions to detect the set of each hand
 
-        hand = sorted(hand)
+        hand = sorted(hand)             #Sorts cards in order
 
         boolean = False
         if hand[1].suit ==hand[1].suit==hand[2].suit==hand[3].suit==hand[4].suit:
@@ -169,10 +169,10 @@ class Poker(object):
                 self.destroy_btn.place(x=350,y=400)#Allows you to continue
                 
                 self.window.mainloop()
-                points = 10
+                points = 10     #Assigns point values to each set
 
                 boolean = True
-                self.total_points.append(points)
+                self.total_points.append(points)        #Appends points to list of points
                 
         return boolean
 
@@ -361,13 +361,13 @@ class Poker(object):
         
     def play (self):
         
-        for i in range (len (self.hands) ):
+        for i in range (len (self.hands) ):#Runs code for each hand
             
             hand = ''
             for card in self.hands[i]:
-                hand = hand + str(card) + ' '
+                hand = hand + str(card) + ' '#saves the current hand
             
-            self.window = tk.Tk()
+            self.window = tk.Tk()#Creates image game window with background
             self.window.geometry("750x500")
             self.window.title("Game Window")
             canvas=tk.Canvas(self.window, width=750,height=500)
@@ -376,17 +376,22 @@ class Poker(object):
             canvas.create_line(250,-25,400,750,fill="black",width=250)
             canvas.create_line(500,-25,650,750,fill="red",width=250)
             canvas.create_line(750,-25,900,750,fill="black",width=250)
+            
+            
+            
             #Create image code
+            #for c in range(self.hands[i]): 
+             #   PC(c.rank,c.suit)
             print ('Hand ' + str(i + 1) + ': ' + hand)
             
-            self.swap_label =tk.Label(self.window, text = "Do you wish to redraw? Click yes or no. ",fg = 'red')
+            self.swap_label =tk.Label(self.window, text = "Do you wish to redraw? Click yes or no. ",fg = 'red')#One example of text boxes
             self.swap_label['font']=font.Font(family='Block',size=20,weight="bold")
             self.swap_label.place(x=125,y=300)
             
             self.yes_btn = tk.Button(self.window,text = "Yes", fg = "red",bg="black",width = 10,height=5)
             self.yes_btn['font']=font.Font(family='Block',size=10,weight="bold")
             self.yes_btn.config(command=lambda button=self.yes_btn: self.yes())
-            self.yes_btn.place(x=100,y=400)
+            self.yes_btn.place(x=100,y=400)#Buttons that allow you to pick yes or no to redrawing
                     
             self.no_btn = tk.Button(self.window,text = "No", fg = "red",bg="black",width = 10,height=5)
             self.no_btn['font']=font.Font(family='Block',size=10,weight="bold")
@@ -400,7 +405,7 @@ class Poker(object):
                 
             self.window.mainloop()
             
-            if self.want_redraw == "yes":
+            if self.want_redraw == "yes":#Runs if player picks yes
                 self.window = tk.Tk()
                 self.window.geometry("750x500")
                 self.window.title("Game Window")
@@ -411,14 +416,14 @@ class Poker(object):
                 canvas.create_line(500,-25,650,750,fill="red",width=250)
                 canvas.create_line(750,-25,900,750,fill="black",width=250)
                 
-                self.redraw_cards = self.input_points()
-                self.window.mainloop()
+                self.redraw_cards = self.input_cards()#Lets user input the cards they wish to return
+                self.window.mainloop()#Displays the current Window
                 
-                for j in range(int(len(self.redraw_cards) / 2) + 1):
+                for j in range(int(len(self.redraw_cards) / 2) + 1):#Replaces specified cards with new ones from deck
                     self.hands[i][int(self.redraw_cards[j * 2]) - 1] = self.mydeck.get_card()
                 sorted_hand = sorted (self.hands[i], reverse = True)
                 hand = ''
-                for card in sorted_hand:
+                for card in sorted_hand:#Prints new hand
                     hand = hand + str(card) + ' '
                 print ('Hand ' + str(i + 1) + ': ' + hand)
                 
@@ -434,7 +439,7 @@ class Poker(object):
             canvas.create_line(500,-25,650,750,fill="red",width=250)
             canvas.create_line(750,-25,900,750,fill="black",width=250)
             
-            if self.royalflush(self.hands[i],i):
+            if self.royalflush(self.hands[i],i):#Checks each hand to see what type of set it is
                 
                 continue
             if self.straight_flush(self.hands[i],i):
@@ -461,7 +466,7 @@ class Poker(object):
                 for j in range(len(self.total_points)):
                       #Look to add a case where it removes the lowest variable
                     if self.total_points[i] == self.total_points[j]==max(self.total_points) and self.total_points[i]!=0 and self.total_points[j]!=0 and i!=j:
-                        self.window = tk.Tk()
+                        self.window = tk.Tk()   #Above used to check ties. Checks to make sure it doesn't check itself or zero scores
                         self.window.geometry("750x500")
                         self.window.title("Game Window")
                         canvas=tk.Canvas(self.window, width=750,height=500)
@@ -470,10 +475,17 @@ class Poker(object):
                         canvas.create_line(250,-25,400,750,fill="black",width=250)
                         canvas.create_line(500,-25,650,750,fill="red",width=250)
                         canvas.create_line(750,-25,900,750,fill="black",width=250) 
-                        self.tie_label =tk.Label(self.window, text ="Players "+str(i+1)+" and "+str(j+1)+" have tied. Rank and Suit will now be checked.",fg = 'red')
+                        self.tie_label =tk.Label(self.window, text ="Players "+str(i+1)+" and "+str(j+1)+" have tied.",fg = 'black')
                         self.tie_label['font']=font.Font(family='Block',size=20,weight="bold")
-                        self.tie_label.place(x=200,y=150)
-                        #print("Players "+str(i+1)+" and "+str(j+1)+" have tied. Rank and Suit will now be checked.")
+                        self.tie_label.place(x=(100+(i+1)),y=200)
+                        self.tie_label =tk.Label(self.window, text ="Rank and Suit will now be checked.",fg = 'black')
+                        self.tie_label['font']=font.Font(family='Block',size=20,weight="bold")
+                        self.tie_label.place(x=(100+(i+1)),y=250)
+                        self.destroy_btn = tk.Button(self.window,text = "Continue", fg = "red",bg="black",width = 10,height=5)
+                        self.destroy_btn['font']=font.Font(family='Block',size=10,weight="bold")
+                        self.destroy_btn.config(command=lambda button=self.destroy_btn: self.destroy())
+                        self.destroy_btn.place(x=350,y=400)#Allows you to continue
+                        
                         max_i = 0
                         for c in self.hands[i]:
                             if c.rank>max_i:
@@ -496,43 +508,45 @@ class Poker(object):
                                 self.total_points[j]-=1
                                 self.suit_label =tk.Label(self.window, text ="Player "+str(i+1)+" has the higher suit.",fg = 'red')
                                 self.suit_label['font']=font.Font(family='Block',size=20,weight="bold")
-                                self.suit_label.place(x=250,y=200)
-                                #print("Player "+str(i+1)+" has the higher suit.")
+                                self.suit_label.place(x=(100+(i+1)),y=300)
+                                #Labels for winning ranks and suits
                                 break
                             else:
                                 self.total_points[i]-=1
                                 self.suit_label =tk.Label(self.window, text ="Player "+str(j+1)+" has the higher suit.",fg = 'red')
                                 self.suit_label['font']=font.Font(family='Block',size=20,weight="bold")
-                                self.suit_label.place(x=250,y=200)
-                                #print("Player "+str(j+1)+" has the higher suit.")
+                                self.suit_label.place(x=(100+(i+1)),y=300)
+                                
                                 break
                         elif max_i > max_j:
                             self.total_points[j]-=1
                             self.rank_label =tk.Label(self.window, text ="Player "+str(i+1)+" has the higher rank.",fg = 'red')
                             self.rank_label['font']=font.Font(family='Block',size=20,weight="bold")
-                            self.rank_label.place(x=250,y=200)
-                            #print("Player "+str(i+1)+" has the higher rank.")
+                            self.rank_label.place(x=(100+(i+1)),y=300)
+                            
                             break
                         else:
                             self.total_points[i]-=1
                             self.rank_label =tk.Label(self.window, text ="Player "+str(j+1)+" has the higher rank.",fg = 'red')
                             self.rank_label['font']=font.Font(family='Block',size=20,weight="bold")
-                            self.rank_label.place(x=250,y=200)
-                            #print("Player "+str(j+1)+" has the higher rank.")
+                            self.rank_label.place(x=(100+(i+1)),y=300)
+                            
                             break
-                        self.destroy_btn = tk.Button(self.window,text = "Continue", fg = "red",bg="black",width = 10,height=5)
-                        self.destroy_btn['font']=font.Font(family='Block',size=10,weight="bold")
-                        self.destroy_btn.config(command=lambda button=self.destroy_btn: self.destroy())
-                        self.destroy_btn.place(x=350,y=400)#Allows you to continue
+#                        self.destroy_btn = tk.Button(self.window,text = "Continue", fg = "red",bg="black",width = 10,height=5)
+#                        self.destroy_btn['font']=font.Font(family='Block',size=10,weight="bold")
+#                        self.destroy_btn.config(command=lambda button=self.destroy_btn: self.destroy())
+#                        self.destroy_btn.place(x=350,y=400)#Allows you to continue
                 
                         self.window.mainloop()
-    def yes(self):
+    def yes(self):#Functions for buttons to enter yes or no
         self.want_redraw='yes'
+        self.window.destroy()
     def no(self):
         self.want_redraw='no'
-    def destroy(self):
+        self.window.destroy()
+    def destroy(self):#Function for continue buttons to destroy the current window before making a new one
          self.window.destroy()
-    def input_points(self):
+    def input_cards(self):#Function for "removing cards" button
          self.point_label =tk.Label(self.window, text = 'Please enter the numbers of the cards you wish to remove. ',fg = 'red')
          self.point_label['font']=font.Font(family='Block',size=20,weight="bold")
          self.point_label.place(x=135,y=100)
@@ -546,13 +560,13 @@ class Poker(object):
          self.enter_btn.config(command=lambda button=self.enter_btn: self.enter_click())
          self.enter_btn.place(x=250,y=200)
     def enter_click(self):
-         self.points = int(self.entry_window.get())
+         self.redraw_cards = self.entry_window.get()
          self.window.destroy()
-class Play_Poker(object):
+class Play_Poker(object):#Class to play poker
      def __init__(self):
-         self.num_hands =0
+         #self.num_hands =0
          
-         self.num_hands = 0
+         
          self.window = tk.Tk()
          self.window.geometry("750x500")
          self.window.title("Game Window")
@@ -565,7 +579,7 @@ class Play_Poker(object):
         
          self.hand_label =tk.Label(self.window, text = 'Enter number of hands to play: ',fg = 'red')
          self.hand_label['font']=font.Font(family='Block',size=20,weight="bold")
-         self.hand_label.place(x=125,y=100)
+         self.hand_label.place(x=125,y=100)#Buttons for number of players
          self.two_button = tk.Button(self.window, text = "Two (2)", fg = "red",bg="black",width = 10,height=5)
          self.two_button['font']=font.Font(family='Block',size=10,weight="bold")
          self.two_button.config(command=lambda button=self.two_button: self.two_click())
@@ -585,12 +599,12 @@ class Play_Poker(object):
         
          self.window.mainloop()
             
-            #Below is an input from players for what they want to be the winning score from all rounds    
-         
+            #The input from players for the winning score is included in the functions     
+            #for the player buttons, see functions below
          score = np.zeros(self.num_hands)#Stores scores for each player
          while max(score)< self.points:#Keeps playing until a max score    
     
-            self.poker_game = Poker(self.num_hands)
+            self.poker_game = Poker(self.num_hands) #Creates one round of poker
             
             self.poker_game.play()
         
@@ -601,16 +615,17 @@ class Play_Poker(object):
         #         print ("Hand "+ str(i+1) + ": " , end="")
         
             
+            print(self.poker_game.total_points)
+            print(max(self.poker_game.total_points))
+            self.max_points=max(self.poker_game.total_points)#Check for the largest set value for each round
+        
+        
+        
+            self.maxindex=self.poker_game.total_points.index(self.max_points)#Finds index for largest score
+        
+            score[self.maxindex]+=self.max_points#Adds points earned each round to the winner of that round
             
-            self.max_points=max(self.poker_game.total_points)
-        
-        
-        
-            self.maxindex=self.poker_game.total_points.index(self.max_points)
-        
-            score[self.maxindex]+=self.max_points
             
-            self.num_hands = 0
             self.window = tk.Tk()
             self.window.geometry("750x500")
             self.window.title("Game Window")
@@ -623,33 +638,33 @@ class Play_Poker(object):
             
             self.round_label =tk.Label(self.window, text ='\nHand %d wins the round'% (self.maxindex+1),fg = 'red')
             self.round_label['font']=font.Font(family='Block',size=20,weight="bold")
-            self.round_label.place(x=200,y=200)
-            #print ('\nHand %d wins the round'% (maxindex+1))
+            self.round_label.place(x=200,y=150)
+            #Prints who won the round
             
             for i in range(len(score)): 
                 self.plyr_scr_label =tk.Label(self.window, text ="Player " + str(i+1)+"'s score is: "+str(int(score[i])),fg = 'red')
                 self.plyr_scr_label['font']=font.Font(family='Block',size=20,weight="bold")
-                self.plyr_scr_label.place(x=200,y=300+(50*i))
-                #print("Player " + str(i+1)+"'s score is: ",int(score[i]))
+                self.plyr_scr_label.place(x=200,y=250+(40*i))
+                #Displays the score for each player
                 
             if max(score)< self.points:
                 self.Continue_label =tk.Label(self.window, text = "Hit Continue.",fg = 'red')
                 self.Continue_label['font']=font.Font(family='Block',size=20,weight="bold")
-                self.Continue_label.place(x=50,y=450)
+                self.Continue_label.place(x=50,y=50)
                 self.destroy_btn = tk.Button(self.window,text = "Continue", fg = "red",bg="black",width = 10,height=5)
                 self.destroy_btn['font']=font.Font(family='Block',size=10,weight="bold")
                 self.destroy_btn.config(command=lambda button=self.destroy_btn: self.destroy())
-                self.destroy_btn.place(x=350,y=400)#Allows you to continue
+                self.destroy_btn.place(x=350,y=50)#Allows you to continue
                 self.window.mainloop()
-                #input("Hit ENTER to proceed to the next round.")
+                
             else:
                 self.Continue_label =tk.Label(self.window, text = "Hit Continue.",fg = 'red')
                 self.Continue_label['font']=font.Font(family='Block',size=20,weight="bold")
-                self.Continue_label.place(x=50,y=450)
+                self.Continue_label.place(x=50,y=50)
                 self.destroy_btn = tk.Button(self.window,text = "Continue", fg = "red",bg="black",width = 10,height=5)
                 self.destroy_btn['font']=font.Font(family='Block',size=10,weight="bold")
                 self.destroy_btn.config(command=lambda button=self.destroy_btn: self.destroy())
-                self.destroy_btn.place(x=350,y=400)#Allows you to continue
+                self.destroy_btn.place(x=350,y=50)#Ends the game once max score is reached
                 self.window.mainloop()
             
          self.window = tk.Tk()
@@ -663,14 +678,14 @@ class Play_Poker(object):
          canvas.create_line(750,-25,900,750,fill="black",width=250)
          self.win_label =tk.Label(self.window, text = '\nPlayer %d is the winner.'% (self.maxindex+1),fg = 'red')
          self.win_label['font']=font.Font(family='Block',size=40,weight="bold")
-         self.win_label.place(x=100,y=200)
+         self.win_label.place(x=100,y=200)#Displays the winner
          self.destroy_btn = tk.Button(self.window,text = "End", fg = "red",bg="black",width = 10,height=5)
          self.destroy_btn['font']=font.Font(family='Block',size=10,weight="bold")
          self.destroy_btn.config(command=lambda button=self.destroy_btn: self.destroy())
          self.destroy_btn.place(x=350,y=400)#Allows you to continue
          self.window.mainloop()      
          #print ('\nPlayer %d is the winner.'% (maxindex+1))
-     def two_click(self):
+     def two_click(self):#Functions for each button prompt
          self.num_hands =2
          self.hand_label.destroy()
          self.two_button.destroy()
@@ -702,7 +717,7 @@ class Play_Poker(object):
          self.four_button.destroy()
          self.fiv_button.destroy()
          self.input_points()
-     def input_points(self):
+     def input_points(self):#Function for redraw input
          self.point_label =tk.Label(self.window, text = 'Please enter the number of points to win: ',fg = 'black')
          self.point_label['font']=font.Font(family='Block',size=20,weight="bold")
          self.point_label.place(x=135,y=100)
@@ -719,7 +734,7 @@ class Play_Poker(object):
          self.window.destroy()
 
            
-class BlackJack(object):
+class BlackJack(object):#Class for blackjack game
     def __init__(self):
         self.mydeck = Deck()
         self.mydeck.shuffle()
@@ -737,7 +752,7 @@ class BlackJack(object):
         canvas.create_line(250,-25,400,750,fill="black",width=250)
         canvas.create_line(500,-25,650,750,fill="red",width=250)
         canvas.create_line(750,-25,900,750,fill="black",width=250)
-        
+        #Most displays are the same between games
         self.hand_label =tk.Label(self.window, text = 'Enter number of hands to play: ',fg = 'black')
         self.hand_label['font']=font.Font(family='Block',size=20,weight="bold")
         self.hand_label.place(x=125,y=100)
@@ -781,7 +796,7 @@ class BlackJack(object):
     
                 
                 total[i] = 0
-                for d in players[i]:
+                for d in players[i]:#Sets point values for each card type. Different from previous class
                     if d.rank<=10:
                         total[i]+=d.rank
                     elif d.rank==11 or d.rank == 12 or d.rank==13:
@@ -805,7 +820,7 @@ class BlackJack(object):
 #                    canvas.create_image(50*(c+1), 50, image=images[c])#Continue here!
 #                
                 
-                if total[i] == 21:
+                if total[i] == 21:#Case to detect blackjack
                     if len(players[i])==2:
                         hand = sorted(players[i])
                         if hand[0].rank==10 or hand[0].rank ==11 or hand[0].rank == 12 or hand[0].rank==13:
@@ -822,25 +837,35 @@ class BlackJack(object):
                 self.point_label['font']=font.Font(family='Block',size=20,weight="bold")
                 self.point_label.place(x=125,y=200)
                 
-                if total[i] <= 10:
-                    self.warn_label =tk.Label(self.window, text = "Your current total is low, we would recommend taking a hit.",fg = 'black')
+                if total[i] <= 10:#Warning prompts to reccomend action for player
+                    self.warn_label =tk.Label(self.window, text = "Your current total is low,",fg = 'black')
                     self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
                     self.warn_label.place(x=125,y=250)
+                    self.warn_label =tk.Label(self.window, text = "we would recommend taking a hit.",fg = 'black')
+                    self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
+                    self.warn_label.place(x=125,y=300)
                     
                 elif total[i] > 10 and total[i] <= 15:
-                    self.warn_label =tk.Label(self.window, text = "Taking a hit now MAY be a good idea here.",fg = 'black')
+                    self.warn_label =tk.Label(self.window, text = "Taking a hit now MAY.",fg = 'black')
                     self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
                     self.warn_label.place(x=125,y=250)
-                    
+                    self.warn_label =tk.Label(self.window, text = "be a good idea here.",fg = 'black')
+                    self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
+                    self.warn_label.place(x=125,y=300)
+                            
                 elif total[i] >15 and total[i] <= 20:
-                    self.warn_label =tk.Label(self.window, text = "Warning! Taking a hit would be inadvisable here!",fg = 'black')
+                    self.warn_label =tk.Label(self.window, text = "Warning! Taking a hit would",fg = 'black')
                     self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
                     self.warn_label.place(x=125,y=250)
+                    self.warn_label =tk.Label(self.window, text = "be inadvisable here!",fg = 'black')
+                    self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
+                    self.warn_label.place(x=125,y=300)
                     
-                if total[i] <21: 
+                    
+                if total[i] <21: #Allows player to take another hit if total is lass than 21
                     self.hit_label =tk.Label(self.window, text = "Do you wish to hit or stop? ",fg = 'black')
                     self.hit_label['font']=font.Font(family='Block',size=20,weight="bold")
-                    self.hit_label.place(x=125,y=300)
+                    self.hit_label.place(x=125,y=350)
                     
                     self.hit_btn = tk.Button(self.window,text = "Hit", fg = "black",bg="red",width = 10,height=5)
                     self.hit_btn['font']=font.Font(family='Block',size=10,weight="bold")
@@ -852,7 +877,7 @@ class BlackJack(object):
                     self.stop_btn.config(command=lambda button=self.stop_btn: self.stop())
                     self.stop_btn.place(x=200,y=400)
                     
-                if total[i]==22:
+                if total[i]==22:#Automatically stops if player has Blackjack
                     self.hit_stop = "stop"
                     
                 self.destroy_btn = tk.Button(self.window,text = "Continue", fg = "black",bg="red",width = 10,height=5)
@@ -861,14 +886,14 @@ class BlackJack(object):
                 self.destroy_btn.place(x=350,y=400)#Allows you to continue
                 
                 self.window.mainloop()
-                while self.hit_stop != "stop":   
+                while self.hit_stop != "stop":   #loops while total is less than 21 and player presses hit
                     if self.hit_stop == "hit":
                         total[i] = 0
-                        hit = self.mydeck.get_cards(1)#Possibly use statistical analysis to recommend hit or miss
+                        hit = self.mydeck.get_cards(1)#Adds card to current hand from deck
                         players[i] += hit
-                        for c in players[i]: 
+                        for c in players[i]: #Prints new hand
                             print(c)
-                            if c.rank<=10:
+                            if c.rank<=10: #Gathers new total
                                 total[i]+=c.rank
                             elif c.rank==11 or c.rank == 12 or c.rank==13:
                                 total[i]+= 10
@@ -884,7 +909,7 @@ class BlackJack(object):
                         canvas.create_line(500,-25,650,750,fill="red",width=250)
                         canvas.create_line(750,-25,900,750,fill="black",width=250)#Last left off here
                         
-                        if total[i] > 21:
+                        if total[i] > 21:#Registers loss if player exceeds 21
                             self.lose_label =tk.Label(self.window, text = "Player "+str(i+1)+"'s value is over 21. You lose!",fg = 'black')
                             self.lose_label['font']=font.Font(family='Block',size=20,weight="bold")
                             self.lose_label.place(x=125,y=200)
@@ -897,7 +922,7 @@ class BlackJack(object):
                             total[i] = 0
                             self.window.mainloop()
                             break
-                        if total[i] == 21:                      #Last left off here
+                        if total[i] == 21:  #Ends automatically if total is 21
                             self.end_label =tk.Label(self.window, text = "Player "+str(i+1)+"'s final value is 21",fg = 'black')
                             self.end_label['font']=font.Font(family='Block',size=20,weight="bold")
                             self.end_label.place(x=125,y=200)
@@ -910,26 +935,35 @@ class BlackJack(object):
                         self.end_label =tk.Label(self.window, text = "Player "+str(i+1)+", your current sum is "+str(int(total[i])),fg = 'black')
                         self.end_label['font']=font.Font(family='Block',size=20,weight="bold")
                         self.end_label.place(x=125,y=200)
-                        #print("Player "+str(i+1)+", your current sum is ",int(total[i]))
+                        #Prints current total value
                         
                         if total[i] <= 10:
-                            self.warn_label =tk.Label(self.window, text = "Your current total is low, we would recommend taking a hit.",fg = 'black')
+                            self.warn_label =tk.Label(self.window, text = "Your current total is low,",fg = 'black')
                             self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
                             self.warn_label.place(x=125,y=250)
+                            self.warn_label =tk.Label(self.window, text = "we would recommend taking a hit.",fg = 'black')
+                            self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
+                            self.warn_label.place(x=125,y=300)
                            # print("Your current total is low, we would recommend taking a hit.")
                         elif total[i] > 10 and total[i] <= 15:
-                            self.warn_label =tk.Label(self.window, text = "Taking a hit now MAY be a good idea here.",fg = 'black')
+                            self.warn_label =tk.Label(self.window, text = "Taking a hit now MAY.",fg = 'black')
                             self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
                             self.warn_label.place(x=125,y=250)
+                            self.warn_label =tk.Label(self.window, text = "be a good idea here.",fg = 'black')
+                            self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
+                            self.warn_label.place(x=125,y=300)
                             #print("Taking a hit now MAY be a good idea here.")
                         elif total[i] >15 and total[i] <= 20:
-                            self.warn_label =tk.Label(self.window, text = "Warning! Taking a hit would be inadvisable here!",fg = 'black')
+                            self.warn_label =tk.Label(self.window, text = "Warning! Taking a hit would",fg = 'black')
                             self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
                             self.warn_label.place(x=125,y=250)
+                            self.warn_label =tk.Label(self.window, text = "be inadvisable here!",fg = 'black')
+                            self.warn_label['font']=font.Font(family='Block',size=20,weight="bold")
+                            self.warn_label.place(x=125,y=300)
                             #print("Warning! Taking a hit would be inadvisable here!")
                         self.hit_label =tk.Label(self.window, text = "Do you wish to hit or stop? ",fg = 'black')
                         self.hit_label['font']=font.Font(family='Block',size=20,weight="bold")
-                        self.hit_label.place(x=125,y=300)
+                        self.hit_label.place(x=125,y=350)
                     
                         self.hit_btn = tk.Button(self.window,text = "Hit", fg = "black",bg="red",width = 10,height=5)
                         self.hit_btn['font']=font.Font(family='Block',size=10,weight="bold")
@@ -962,12 +996,15 @@ class BlackJack(object):
                 self.plyr_scr_label.place(x=100,y=40*i)
             for i in range(len(total)):#Behind the scenes code to determine a winner in the case of a tie
                 for j in range(len(total)):
-                      #Look to add a case where it removes the lowest variable
+                      
                     if total[i] == total[j]==max(total) and total[i]!=0 and total[j]!=0 and i!=j:
-                        self.tie_label =tk.Label(self.window, text ="Players "+str(i+1)+" and "+str(j+1)+" have tied. Rank and Suit will now be checked.",fg = 'black')
+                        self.tie_label =tk.Label(self.window, text ="Players "+str(i+1)+" and "+str(j+1)+" have tied.",fg = 'black')
                         self.tie_label['font']=font.Font(family='Block',size=20,weight="bold")
-                        self.tie_label.place(x=200,y=200)
-                        #print("Players "+str(i+1)+" and "+str(j+1)+" have tied. Rank and Suit will now be checked.")
+                        self.tie_label.place(x=(100+(i+1)),y=200)
+                        self.tie_label =tk.Label(self.window, text ="Rank and Suit will now be checked.",fg = 'black')
+                        self.tie_label['font']=font.Font(family='Block',size=20,weight="bold")
+                        self.tie_label.place(x=(100+(i+1)),y=250)
+                        
                         max_i = 0
                         for c in players[i]:
                             if c.rank>max_i:
@@ -990,64 +1027,79 @@ class BlackJack(object):
                                 total[j]-=1
                                 self.suit_label =tk.Label(self.window, text ="Player "+str(i+1)+" has the higher suit.",fg = 'black')
                                 self.suit_label['font']=font.Font(family='Block',size=20,weight="bold")
-                                self.suit_label.place(x=250,y=200)
+                                self.suit_label.place(x=(100+(i+1)),y=300)
                                 #print("Player "+str(i+1)+" has the higher suit.")
                                 break
                             else:
                                 total[i]-=1
                                 self.suit_label =tk.Label(self.window, text ="Player "+str(j+1)+" has the higher suit.",fg = 'black')
                                 self.suit_label['font']=font.Font(family='Block',size=20,weight="bold")
-                                self.suit_label.place(x=250,y=200)
+                                self.suit_label.place(x=(100+(i+1)),y=300)
                                 #print("Player "+str(j+1)+" has the higher suit.")
                                 break
                         elif max_i > max_j:
                             total[j]-=1
                             self.rank_label =tk.Label(self.window, text ="Player "+str(i+1)+" has the higher rank.",fg = 'black')
                             self.rank_label['font']=font.Font(family='Block',size=20,weight="bold")
-                            self.rank_label.place(x=250,y=200)
+                            self.rank_label.place(x=(100+(i+1)),y=300)
                             #print("Player "+str(i+1)+" has the higher rank.")
                             break
                         else:
                             total[i]-=1
                             self.rank_label =tk.Label(self.window, text ="Player "+str(j+1)+" has the higher rank.",fg = 'black')
                             self.rank_label['font']=font.Font(family='Block',size=20,weight="bold")
-                            self.rank_label.place(x=250,y=200)
+                            self.rank_label.place(x=(100+(i+1)),y=300)
                             #print("Player "+str(j+1)+" has the higher rank.")
                             break
-                                
+            self.destroy_btn = tk.Button(self.window,text = "Continue", fg = "black",bg="red",width = 10,height=5)
+            self.destroy_btn['font']=font.Font(family='Block',size=10,weight="bold")
+            self.destroy_btn.config(command=lambda button=self.destroy_btn: self.destroy())
+            self.destroy_btn.place(x=350,y=400)#Allows you to continue
+            self.window.mainloop()      
+
+            self.window = tk.Tk()
+            self.window.geometry("750x500")
+            self.window.title("Game Window")
+            canvas=tk.Canvas(self.window, width=750,height=500)
+            canvas.pack()
+            canvas.create_line(0,0,150,750,fill="red",width=250)
+            canvas.create_line(250,-25,400,750,fill="black",width=250)
+            canvas.create_line(500,-25,650,750,fill="red",width=250)
+            canvas.create_line(750,-25,900,750,fill="black",width=250)      
             if max(total)==0:
                 self.null_label =tk.Label(self.window, text ="There are no winners this round.",fg = 'black')
                 self.null_label['font']=font.Font(family='Block',size=20,weight="bold")
                 self.null_label.place(x=200,y=200)
-                #print("There are no winners this round.")
+                #Case if everyone goes over to avoid error
             else:
-                score[np.argmax(total)]+=1
+                score[np.argmax(total)]+=1#Adds point to winner of round
                 self.null_label =tk.Label(self.window, text ="Player "+str(np.argmax(total)+1)+" wins the round!",fg = 'black')
                 self.null_label['font']=font.Font(family='Block',size=20,weight="bold")
                 self.null_label.place(x=200,y=200)
-                #print("Player "+str(np.argmax(total)+1)+" wins the round!")
+                #Prints winner of the round
                 
-                for i in range(len(score)):
+                for i in range(len(score)):#Displays score for each player
                     self.plyr_scr_label =tk.Label(self.window, text ="Player " + str(i+1)+"'s score is: "+str(int(score[i])),fg = 'black')
                     self.plyr_scr_label['font']=font.Font(family='Block',size=20,weight="bold")
-                    self.plyr_scr_label.place(x=200,y=300+(50*i))
+                    self.plyr_scr_label.place(x=200,y=250+(50*i))
                  
             
-            if max(score)< max_score:
+            if max(score)< max_score:#Continues as long as max score isn't reached
                 self.Continue_label =tk.Label(self.window, text = "Hit Continue.",fg = 'black')
                 self.Continue_label['font']=font.Font(family='Block',size=20,weight="bold")
-                self.Continue_label.place(x=50,y=450)
+                self.Continue_label.place(x=50,y=50)
                 self.destroy_btn = tk.Button(self.window,text = "Continue", fg = "black",bg="red",width = 10,height=5)
                 self.destroy_btn['font']=font.Font(family='Block',size=10,weight="bold")
                 self.destroy_btn.config(command=lambda button=self.destroy_btn: self.destroy())
-                self.destroy_btn.place(x=350,y=400)#Allows you to continue
+                self.destroy_btn.place(x=350,y=50)#Allows you to continue
                 self.window.mainloop()
             else:    
                 self.destroy_btn = tk.Button(self.window,text = "Continue", fg = "black",bg="red",width = 10,height=5)
                 self.destroy_btn['font']=font.Font(family='Block',size=10,weight="bold")
                 self.destroy_btn.config(command=lambda button=self.destroy_btn: self.destroy())
+                self.destroy_btn.place(x=350,y=50)
                 self.window.mainloop()
-                #input("Hit ENTER to proceed to the next round.")
+                
         self.window = tk.Tk()
         self.window.geometry("750x500")
         self.window.title("Game Window")
@@ -1060,7 +1112,7 @@ class BlackJack(object):
         self.win_label =tk.Label(self.window, text = "Player "+str(np.argmax(score)+1)+" wins the game!",fg = 'black')
         self.win_label['font']=font.Font(family='Block',size=40,weight="bold")
         self.win_label.place(x=100,y=200)
-        #print("Player "+str(np.argmax(score)+1)+" wins the game!")   
+        
         self.destroy_btn = tk.Button(self.window,text = "End", fg = "black",bg="red",width = 10,height=5)
         self.destroy_btn['font']=font.Font(family='Block',size=10,weight="bold")
         self.destroy_btn.config(command=lambda button=self.destroy_btn: self.destroy())
@@ -1116,9 +1168,11 @@ class BlackJack(object):
         self.window.destroy()
     def hit(self):
         self.hit_stop='hit'
+        self.window.destroy()
     def stop(self):
         self.hit_stop='stop'
-class Play(object):
+        self.window.destroy()
+class Play(object):#Function that allow the user to pick game
     def __init__(self):
         self.window = tk.Tk()
 
@@ -1137,16 +1191,16 @@ class Play(object):
         blkjk_btn = tk.Button(self.window, text = "Blackjack", fg = "black",bg="red",width = 10,height=5)
         blkjk_btn['font']=font.Font(family='Block',size=20,weight="bold")
         blkjk_btn.config(command=lambda button=blkjk_btn: self.blkjk_click())
-        blkjk_btn.place(x=100,y=175)
+        blkjk_btn.place(x=100,y=175)#Button for Blackjack
         
         
         poker_btn = tk.Button(self.window, text = "Poker", fg = "red",bg="black",width = 10,height=5)
         poker_btn["font"]=font.Font(family='Block',size=20,weight="bold")
         poker_btn.config(command=lambda button=poker_btn: self.poker_click())
         poker_btn.place(x=450,y=175)
-        self.window.mainloop()       #Check slides 5 and 6(lecture 10) about importing other py files
+        self.window.mainloop()       #Button for Poker
         
-    def blkjk_click(self):
+    def blkjk_click(self):#Functions for game buttons
         self.window.destroy()
         BlackJack()
         
@@ -1154,4 +1208,4 @@ class Play(object):
         self.window.destroy()
         Play_Poker()
 
-Play()
+Play()#Runs the 'Play' class
