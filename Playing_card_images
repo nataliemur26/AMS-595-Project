@@ -3,212 +3,212 @@ from PIL import ImageTk,Image
 global img
 class Playing_Card:
     def __init__(self, suit=1, rank=2):
-    
+    #Pulls up images for each cards in deck
         if self.rank == 2 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("2S.jpg"))  
-            self.create_image(10, 10,  image=img) 
+            im = Image.open("Card Images\\2S.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 2 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("2H.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\2H.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 2 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("2D.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\2D.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 2 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("2C.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\2C.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 3 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("3S.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\3S.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 3 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("3H.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\3H.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 3 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("3D.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\3D.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 3 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("3C.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\3C.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 4 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("4S.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\4S.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 4 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("4H.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\4H.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 4 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("4D.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\4D.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 4 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("4C.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\4C.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 5 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("5S.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\5S.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 5 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("5H.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\5H.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 5 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("5D.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\5D.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 5 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("5C.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\5C.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 6 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("6S.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\6S.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 6 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("6H.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\6H.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 6 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("6D.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\6D.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 6 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("6C.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\6C.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 7 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("7S.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\7S.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 7 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("7H.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\7H.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 7 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("7D.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\7D.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 7 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("7C.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\7C.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 8 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("8S.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\8S.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 8 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("8H.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\8H.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 8 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("8D.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\8D.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 8 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("8C.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\8C.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 9 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("9S.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\9S.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 9 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("9H.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\9H.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 9 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("9D.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\9D.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 9 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("9C.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\9C.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 10 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("10S.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\10S.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 10 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("10H.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\10H.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 10 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("10D.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\10D.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 10 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("10C.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\10C.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 11 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("JS.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\JS.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 11 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("JH.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\JH.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 11 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("JD.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\JD.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
             
         elif self.rank == 11 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("JC.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\JC.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 12 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("QS.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\QS.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 12 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("QH.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\QH.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 12 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("QD.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\QD.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 12 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("QC.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\QC.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 13 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("KS.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\KS.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 13 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("KH.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\KH.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 13 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("KD.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\KD.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 13 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("KC.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\KC.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 14 and self.suit == 1:
-            img = ImageTk.PhotoImage(Image.open("AS.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\AS.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 14 and self.suit == 2:
-            img = ImageTk.PhotoImage(Image.open("AH.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\AH.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 14 and self.suit == 3:
-            img = ImageTk.PhotoImage(Image.open("AD.jpg"))  
-            self.create_image(10, 10,  image=img)
+            im = Image.open("Card Images\\AD.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
         
         elif self.rank == 14 and self.suit == 4:
-            img = ImageTk.PhotoImage(Image.open("AC.jpg"))  
-            self.create_image(10, 10,  image=img)
-        
+            im = Image.open("Card Images\\AC.jpg")#Change others to match this format
+            img = ImageTk.PhotoImage(im.resize((70,105)))
+        self.img = img
