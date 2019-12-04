@@ -386,7 +386,9 @@ class Poker(object):#Class for poker game
                  canvas.create_image(50+90*(self.hands[i].index(c)+1), 100, image=images[self.hands[i].index(c)])
                     
             #print ('Hand ' + str(i + 1) + ': ' + hand)
-            
+            self.swap_label =tk.Label(self.window, text = "Player "+str(i+1),fg = 'red')#One example of text boxes
+            self.swap_label['font']=font.Font(family='Block',size=20,weight="bold")
+            self.swap_label.place(x=125,y=250)
             self.swap_label =tk.Label(self.window, text = "Do you wish to redraw? Click yes or no. ",fg = 'red')#One example of text boxes
             self.swap_label['font']=font.Font(family='Block',size=20,weight="bold")
             self.swap_label.place(x=125,y=300)
@@ -593,9 +595,12 @@ class Poker(object):#Class for poker game
     def destroy(self):#Function for continue buttons to destroy the current window before making a new one
          self.window.destroy()
     def input_cards(self):#Function for "removing cards" button
-         self.point_label =tk.Label(self.window, text = 'Please enter the numbers of the cards you wish to remove. ',fg = 'red')
+         self.point_label =tk.Label(self.window, text = 'Please enter the numbers of the cards ',fg = 'red')
          self.point_label['font']=font.Font(family='Block',size=20,weight="bold")
-         self.point_label.place(x=135,y=100)
+         self.point_label.place(x=135,y=50)
+         self.point_label =tk.Label(self.window, text = 'you wish to remove. ',fg = 'red')
+         self.point_label['font']=font.Font(family='Block',size=20,weight="bold")
+         self.point_label.place(x=135,y=90)
          self.point_label2 =tk.Label(self.window, text = 'Ex. type \"1,3\" to remove cards 1 & 3 ',fg = 'red')
          self.point_label2['font']=font.Font(family='Block',size=20,weight="bold")
          self.point_label2.place(x=135,y=130)
