@@ -1315,3 +1315,4 @@ class Play(object):#Function that allow the user to pick game
         Play_Poker()
 
 Play()#Runs the 'Play' class
+
